@@ -1,0 +1,11 @@
+Thought 1
+    Algorithm:
+
+    1. Begin w/ least significant digit at position n.
+    2. Compare it to digit in position n - 1, n - 2, etc until it is larger than the digit in that position, and
+       then swap the two.
+
+         If steps 1 and 2 result in reaching the most significant digit without success in step 2, begin again at
+         position n - 1 and repeat steps one and two until step two is successful
+
+    3.
