@@ -4,6 +4,7 @@
 
 // Function Prototypes
 bool init_inputs(int const & argc, char *argv[], std::vector<int> & inputs);
+// END Function Prototypes
 
 // MAIN
 int main(int argc, char *argv[]) {
