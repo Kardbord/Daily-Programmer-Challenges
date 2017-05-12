@@ -8,4 +8,6 @@ Thought 1
          If steps 1 and 2 result in reaching the most significant digit without success in step 2, begin again at
          position n - 1 and repeat steps one and two until step two is successful
 
-    3.
+    3. Sort all the digits in positions less significant than the digit swapped in step 2 from least to greatest
+
+    Notes: This algorithm is at least O(n^2) -- would be nice to do better...
