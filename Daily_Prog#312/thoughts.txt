@@ -1,7 +1,8 @@
 Thought 1
     Algorithm:
 
-    1. Begin w/ least significant digit at position n.
+    1. Begin w/ least significant digit at position n (unless it is a 0 or 1, then immediately move to the next
+       position).
     2. Compare it to digit in position n - 1, n - 2, etc until it is larger than the digit in that position, and
        then swap the two.
 
@@ -10,7 +11,10 @@ Thought 1
 
     3. Sort all the digits in positions less significant than the digit swapped in step 2 from least to greatest
 
-    Notes: This algorithm is at least O(n^2) in the worst case -- would be nice to do better...
+    Notes: This algorithm is at least O(n^2) in the worst case -- would be nice to do better... but I can't think of
+    any way to do better, so this is probably what I'll do. I think this is more efficient than the algorithm in
+    Thought 2 since we don't bother creating a lot of incorrect and unnecessary permutations. This is a greedy algorithm
+    (I think).
 
 Thought 2
     Algorithm: Create all permutations of the inputted number and sort them from least to greatest.
