@@ -17,7 +17,8 @@ Thought 1
     (I think).
 
 Thought 2
-    Algorithm: Create all permutations of the inputted number and sort them from least to greatest.
+    Algorithm: Create all permutations of the inputted number and sort them from least to greatest, then do some sort of
+    binary search to locate the starting number, then move one further in the array.
 
     Notes: I accidentally saw this as someone else's solution on the challenge page. Seems like creating all
     permutations is unnecessarily complex and inefficient. Unless I'm mistaken (and I could well be) then the algorithm
