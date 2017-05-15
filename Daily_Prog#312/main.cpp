@@ -4,6 +4,7 @@
 
 // Function Prototypes
 bool init_inputs(int const & argc, char *argv[], std::vector<long long> & inputs);
+std::string compute_next_largest(long long const &input);
 // END Function Prototypes
 
 // MAIN
@@ -49,4 +50,14 @@ bool init_inputs(int const & argc, char *argv[], std::vector<long long> & inputs
         }
     }
     return true;
+}
+
+/**
+ * Computes the next largest number using only the digits available
+ *
+ * @param input
+ * @return next largest number using only the digits contained in 'input'
+ */
+std::string compute_next_largest(long long const &input) {
+
 }
