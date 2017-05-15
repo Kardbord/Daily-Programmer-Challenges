@@ -11,6 +11,12 @@ int main(int argc, char *argv[]) {
     std::vector<long long> inputs;
     if(!init_inputs(argc, argv, inputs)) return EXIT_FAILURE;
 
+    if (inputs.size() != 0) {
+        // TODO: input file present, evaluate given values and then ask for input
+    }
+
+    // TODO: ask for user input
+
     return EXIT_SUCCESS;
 } // END MAIN
 
@@ -20,6 +26,10 @@ bool init_inputs(int const & argc, char *argv[], std::vector<long long> & inputs
         return false;
     }
 
+    // if no cmd line args provided
+    if (argc < 2) return true;
+
+    // if input file provided
     std::ifstream fin(argv[1]);
     if (!fin) {
         std::cerr << "Error opening " << argv[1] << ", program terminated" << std::endl;
