@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 
 bool init_inputs(int const &argc, char *argv[], std::vector<long long> &inputs) {
     if (argc > 2) {
-        std::cerr << "Too many command line arguments provided -- expected 1" << std::endl;
+        std::cerr << "Too many command line arguments provided -- expected 0 or 1" << std::endl;
         return false;
     }
 
@@ -68,14 +68,14 @@ std::string compute_next_largest(long long const &input) {
      * The for loop contains an anonymous struct so I can initialize variables of multiple types for use in the loop
      * See http://stackoverflow.com/questions/11255684/why-c-does-not-support-multiple-initializers-in-for-loop
      */
-    for (struct { int index; bool swapped; } loopConditions = {(int) nextLargest.size() - 1, false};
-         !loopConditions.swapped; --loopConditions.index) {
+    for (struct { int index; bool swapped; } loopVars = {(int) nextLargest.size() - 1, false};
+         !loopVars.swapped; --loopVars.index) {
 
-        for (int j = 1; !loopConditions.swapped && j <= loopConditions.index; ++j) {
-            if (nextLargest[loopConditions.index] != '0') {
-                if (nextLargest[loopConditions.index] > nextLargest[loopConditions.index - j]) {
-                    swap(nextLargest, loopConditions.index, loopConditions.index - j);
-                    loopConditions.swapped = true;
+        for (int j = 1; !loopVars.swapped && j <= loopVars.index; ++j) {
+            if (nextLargest[loopVars.index] != '0') {
+                if (nextLargest[loopVars.index] > nextLargest[loopVars.index - j]) {
+                    swap(nextLargest, loopVars.index, loopVars.index - j);
+                    loopVars.swapped = true;
                 }
             }
         }
