@@ -68,13 +68,13 @@ std::string compute_next_largest(long long const &input) {
      * The for loop contains an anonymous struct so I can initialize variables of multiple types for use in the loop
      * See http://stackoverflow.com/questions/11255684/why-c-does-not-support-multiple-initializers-in-for-loop
      */
-    for (struct { int i; bool swapped; } loopConditions = {(int) nextLargest.size() - 1, false};
-         !loopConditions.swapped; --loopConditions.i) {
+    for (struct { int index; bool swapped; } loopConditions = {(int) nextLargest.size() - 1, false};
+         !loopConditions.swapped; --loopConditions.index) {
 
-        for (int j = 1; !loopConditions.swapped && j <= loopConditions.i; ++j) {
-            if (nextLargest[loopConditions.i] != '0') {
-                if (nextLargest[loopConditions.i] > nextLargest[loopConditions.i - j]) {
-                    swap(nextLargest, loopConditions.i, loopConditions.i - j);
+        for (int j = 1; !loopConditions.swapped && j <= loopConditions.index; ++j) {
+            if (nextLargest[loopConditions.index] != '0') {
+                if (nextLargest[loopConditions.index] > nextLargest[loopConditions.index - j]) {
+                    swap(nextLargest, loopConditions.index, loopConditions.index - j);
                     loopConditions.swapped = true;
                 }
             }
