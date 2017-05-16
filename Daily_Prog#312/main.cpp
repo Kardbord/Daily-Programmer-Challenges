@@ -72,9 +72,11 @@ std::string compute_next_largest(long long const &input) {
          !loopConditions.swapped; --loopConditions.i) {
 
         for (int j = 1; !loopConditions.swapped && j <= loopConditions.i; ++j) {
-            if (nextLargest[loopConditions.i] > nextLargest[loopConditions.i - j]) {
-                swap(nextLargest, loopConditions.i, loopConditions.i - j);
-                loopConditions.swapped = true;
+            if (nextLargest[loopConditions.i] != '0') {
+                if (nextLargest[loopConditions.i] > nextLargest[loopConditions.i - j]) {
+                    swap(nextLargest, loopConditions.i, loopConditions.i - j);
+                    loopConditions.swapped = true;
+                }
             }
         }
     }
