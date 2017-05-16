@@ -63,7 +63,8 @@ std::string compute_next_largest(long long const &input) {
     std::string nextLargest = std::to_string(input);
 
 
-    /* Yes, I know this is confusing, but it's cool dang it.
+    /*
+     * Yes, I know this is confusing, but it's cool dang it.
      * The for loop contains an anonymous struct so I can initialize variables of multiple types for use in the loop
      * See http://stackoverflow.com/questions/11255684/why-c-does-not-support-multiple-initializers-in-for-loop
      */
