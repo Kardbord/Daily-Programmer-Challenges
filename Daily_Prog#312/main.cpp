@@ -75,10 +75,9 @@ std::string compute_next_largest(std::string const &input) {
      */
     for (struct { int index; bool swapped, out_of_bounds; } loopVars = {(int) nextLargest.size() - 1, false, false};
          !loopVars.swapped && !loopVars.out_of_bounds; --loopVars.index) {
+        // if we've reached the second-to-most-significant digit, then either we can swap it or we're out of range
         if (loopVars.index == 1) loopVars.out_of_bounds = true;
         for (int j = 1; !loopVars.swapped && j <= loopVars.index; ++j) {
-            // If j == loopVars.index, then we are out of digits to check and need to stop looping
-            if (j >= loopVars.index) loopVars.out_of_bounds = true;
 
             if (nextLargest[loopVars.index] != '0') {
                 if (nextLargest[loopVars.index] > nextLargest[loopVars.index - j]) {
