@@ -16,7 +16,9 @@ int main(int argc, char *argv[]) {
     if (!init_inputs(argc, argv, inputs)) return EXIT_FAILURE;
 
     if (inputs.size() != 0) {
-        // TODO: input file present, evaluate given values and then ask for input
+        for (auto &&number : inputs) {
+            std::cout << number << " ---> " << compute_next_largest(number) << std::endl;
+        }
     }
 
     // TODO: ask for user input
@@ -35,17 +37,20 @@ bool init_inputs(int const &argc, char *argv[], std::vector<std::string> &inputs
 
     // if input file provided
     std::ifstream fin(argv[1]);
-    if (!fin) {
+    if (!fin.is_open()) {
         std::cerr << "Error opening " << argv[1] << ", program terminated" << std::endl;
         return false;
     }
 
     // read in file
-    for (int i = 0; fin >> inputs[i]; ++i) {
+    std::string input = "";
+    for (int i = 0; fin >> input; ++i) {
+        inputs.push_back(input);
         if (!validateInput(inputs[i])) {
             return false;
         }
     }
+    fin.close();
     return true;
 }
 
