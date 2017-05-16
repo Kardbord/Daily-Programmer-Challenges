@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <cmath>
 
 // Function Prototypes
 bool init_inputs(int const &argc, char *argv[], std::vector<std::string> &inputs);
 std::string compute_next_largest(std::string const &input);
 void swap(std::string &container, int const &index1, int const &index2);
+bool validateInput(std::string const &input);
 // END Function Prototypes
 
 // MAIN
@@ -40,14 +42,8 @@ bool init_inputs(int const &argc, char *argv[], std::vector<std::string> &inputs
 
     // read in file
     for (int i = 0; fin >> inputs[i]; ++i) {
-        if (inputs[i] < 0) {
-            std::cerr << "Error! One or more input values were negative, program terminated." << std::endl;
+        if (!validateInput(inputs[i])) {
             return false;
-        }
-
-        if (std::stod(inputs[i]) / INT64_MAX >= 0.85) {
-            std::cout << "\aWarning! Input integer is very large, possibly resulting in overflow.\n"
-                      << "Results may be inaccurate." << std::endl;
         }
     }
     return true;
@@ -87,4 +83,25 @@ void swap(std::string &container, int const &index1, int const &index2) {
     auto temp = container[index1];
     container[index1] = container[index2];
     container[index2] = temp;
+}
+
+bool validateInput(std::string const &input) {
+    double d_input = std::stod(input);
+
+    if (d_input < 0) {
+        std::cerr << "Error! One negative input value present, program terminated." << std::endl;
+        return false;
+    }
+
+    if (d_input != std::floor(d_input)) {
+        std::cerr << "Error! Non-whole number input present, program terminated" << std::endl;
+        return false;
+    }
+
+    if (d_input / INT64_MAX >= 0.85) {
+        std::cout << "\aWarning! Input integer is very large, possibly resulting in overflow.\n"
+                  << "Results may be inaccurate." << std::endl;
+    }
+
+    return true;
 }
