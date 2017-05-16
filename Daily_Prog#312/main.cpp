@@ -100,12 +100,17 @@ void swap(std::string &container, int const &index1, int const &index2) {
 
 bool validateInput(std::string const &input) {
     if (input[0] == '-') {
-        std::cerr << "Error! One negative input value present, program terminated." << std::endl;
+        std::cerr << "Error! Negative input value present, program terminated." << std::endl;
         return false;
     }
 
     if (input.find('.') != std::string::npos) {
-        std::cerr << "Error! Non-whole number input present, program terminated" << std::endl;
+        std::cerr << "Error! Non-whole number input present, program terminated." << std::endl;
+        return false;
+    }
+
+    if (input.find_first_not_of("0123456789") != std::string::npos) {
+        std::cerr << "Error! Non-numeric input present, program terminated." << std::endl;
         return false;
     }
 
