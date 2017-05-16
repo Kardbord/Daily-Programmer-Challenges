@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <cmath>
+#include <algorithm>
 
 // Function Prototypes
 bool init_inputs(int const &argc, char *argv[], std::vector<std::string> &inputs);
@@ -61,6 +62,10 @@ bool init_inputs(int const &argc, char *argv[], std::vector<std::string> &inputs
  * @return next largest number using only the digits contained in 'input'
  */
 std::string compute_next_largest(std::string const &input) {
+
+    // check that the number does not consist of identical digits
+    if (input.find_first_not_of(input[0]) == std::string::npos) return input;
+
     std::string nextLargest = input;
 
     /*
@@ -68,14 +73,18 @@ std::string compute_next_largest(std::string const &input) {
      * The for loop contains an anonymous struct so I can initialize variables of multiple types for use in the loop
      * See http://stackoverflow.com/questions/11255684/why-c-does-not-support-multiple-initializers-in-for-loop
      */
-    for (struct { int index; bool swapped; } loopVars = {(int) nextLargest.size() - 1, false};
+    for (struct { int index; bool swapped, out_of_bounds; } loopVars = {(int) nextLargest.size() - 1, false, false};
          !loopVars.swapped; --loopVars.index) {
-
+        if (loopVars.index == 1) loopVars.out_of_bounds = true;
         for (int j = 1; !loopVars.swapped && j <= loopVars.index; ++j) {
+            // If j == loopVars.index, then we are out of digits to check and need to stop looping
+            if (j >= loopVars.index) loopVars.out_of_bounds = true;
+
             if (nextLargest[loopVars.index] != '0') {
                 if (nextLargest[loopVars.index] > nextLargest[loopVars.index - j]) {
                     swap(nextLargest, loopVars.index, loopVars.index - j);
                     loopVars.swapped = true;
+                    std::sort(nextLargest.begin() + (loopVars.index - j) + 1, nextLargest.end());
                 }
             }
         }
@@ -110,3 +119,5 @@ bool validateInput(std::string const &input) {
 
     return true;
 }
+
+
