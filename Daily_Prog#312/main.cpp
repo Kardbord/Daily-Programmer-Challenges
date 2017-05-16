@@ -3,14 +3,14 @@
 #include <fstream>
 
 // Function Prototypes
-bool init_inputs(int const &argc, char *argv[], std::vector<long long> &inputs);
-std::string compute_next_largest(long long const &input);
+bool init_inputs(int const &argc, char *argv[], std::vector<std::string> &inputs);
+std::string compute_next_largest(std::string const &input);
 void swap(std::string &container, int const &index1, int const &index2);
 // END Function Prototypes
 
 // MAIN
 int main(int argc, char *argv[]) {
-    std::vector<long long> inputs;
+    std::vector<std::string> inputs;
     if (!init_inputs(argc, argv, inputs)) return EXIT_FAILURE;
 
     if (inputs.size() != 0) {
@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
     return EXIT_SUCCESS;
 } // END MAIN
 
-bool init_inputs(int const &argc, char *argv[], std::vector<long long> &inputs) {
+bool init_inputs(int const &argc, char *argv[], std::vector<std::string> &inputs) {
     if (argc > 2) {
         std::cerr << "Too many command line arguments provided -- expected 0 or 1" << std::endl;
         return false;
@@ -45,7 +45,7 @@ bool init_inputs(int const &argc, char *argv[], std::vector<long long> &inputs) 
             return false;
         }
 
-        if ((double) inputs[i] / INT64_MAX >= 0.85) {
+        if (std::stod(inputs[i]) / INT64_MAX >= 0.85) {
             std::cout << "\aWarning! Input integer is very large, possibly resulting in overflow.\n"
                       << "Results may be inaccurate." << std::endl;
         }
@@ -59,9 +59,8 @@ bool init_inputs(int const &argc, char *argv[], std::vector<long long> &inputs) 
  * @param input
  * @return next largest number using only the digits contained in 'input'
  */
-std::string compute_next_largest(long long const &input) {
-    std::string nextLargest = std::to_string(input);
-
+std::string compute_next_largest(std::string const &input) {
+    std::string nextLargest = input;
 
     /*
      * Yes, I know this is confusing, but it's cool dang it.
