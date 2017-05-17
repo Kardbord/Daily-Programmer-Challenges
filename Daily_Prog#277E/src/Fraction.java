@@ -32,13 +32,24 @@ public class Fraction extends Pair<Integer, Integer> {
         sanitize();
     }
 
+    /**
+     * Simplifies the Fraction, alters the values of Numerator and Denominator
+     */
     public void simplify() {
-        Fraction simplified = Simplifier.simplify(this.getNumerator(), this.getDenominator());
+        Fraction simplified = Simplifier.simplify(this);
         this.setNumerator(simplified.getNumerator());
         this.setDenominator(simplified.getDenominator());
     }
 
-    // TODO: add getSimplified method which returns the simplified fraction but does not change the actual values
+    /**
+     * Simplifies the Fraction, but does not actually alter the data members.
+     * Returns the simplified Fraction as a new object.
+     *
+     * @return the simplified Fraction
+     */
+    public Fraction getSimplified() {
+        return Simplifier.simplify(this);
+    }
 
     private void sanitize() {
         if (this.getNumerator() < 0 && this.getDenominator() < 0) {
