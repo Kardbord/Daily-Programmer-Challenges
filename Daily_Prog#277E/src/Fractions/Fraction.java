@@ -24,6 +24,10 @@ public class Fraction extends Pair<Integer, Integer> {
         return this.getSecond();
     }
 
+    public String getAsString() {
+        return this.getNumerator() + " / " + this.getDenominator();
+    }
+
     public void setNumerator(Integer numerator) {
         this.setFirst(numerator);
         sanitize();
