@@ -9,8 +9,8 @@
  */
 public class Fraction extends Pair<Integer, Integer> {
 
-    public Fraction(Integer first, Integer second) {
-        super(first, second);
+    public Fraction(Integer numerator, Integer denominator) {
+        super(numerator, denominator);
     }
 
     public Integer getNumerator() {
