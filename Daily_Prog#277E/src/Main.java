@@ -2,7 +2,7 @@
  * Daily_Prog#277E
  * Created on 5/17/2017
  *
- * TODO Add a short description of the class here
+ * Contains the main method
  *
  * @author Tanner Kvarfordt
  * @version 1.0
@@ -26,11 +26,16 @@ public class Main {
         fraction.simplify();
         System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
 
-        fraction.setNumerator(8);
-        fraction.setDenominator(0);
-        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
-        fraction.simplify();
-        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+       try {
+            fraction.setNumerator(8);
+            fraction.setDenominator(0);
+            System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+            fraction.simplify();
+            System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+        } catch (Exception e) {
+            // This is expected behavior
+            fraction.setDenominator(1); // set denom to not be 0
+        }
 
         fraction.setNumerator(15);
         fraction.setDenominator(3);
