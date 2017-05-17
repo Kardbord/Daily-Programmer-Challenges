@@ -19,6 +19,11 @@ public class Simplifier {
         return new Fraction(numerator / gcf, denominator / gcf);
     }
 
+    public static Fraction simplify(Fraction fraction) {
+        Integer gcf = computeGCF(fraction.getNumerator(), fraction.getDenominator());
+        return new Fraction(fraction.getNumerator() / gcf, fraction.getDenominator() / gcf);
+    }
+
     /**
      * Calculates the greatest common factor of a and the b using the Euclidean algorithm
      * See https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
