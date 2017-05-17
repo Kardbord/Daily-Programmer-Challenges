@@ -21,6 +21,14 @@ public class Fraction extends Pair<Integer> {
         return this.getSecond();
     }
 
+    public void setNumerator(Integer numerator) {
+        this.setFirst(numerator);
+    }
+
+    public void setDenominator(Integer denominator) {
+        this.setSecond(denominator);
+    }
+
     // TODO: add simplify method which changes the value of numerator and denominator
 
     // TODO: add getSimplified method which returns the simplified fraction but does not change the actual values
