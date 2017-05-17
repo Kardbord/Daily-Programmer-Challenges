@@ -17,11 +17,7 @@ public class Simplifier {
     }
 
 
-    public static Fraction simplify(Integer numerator, Integer denominator) {
-        // TODO: implement me
-    }
+    public static void simplify(Integer numerator, Integer denominator) {
 
-    public static Fraction simplify(Fraction fraction) {
-        // TODO: implement me
     }
 }
