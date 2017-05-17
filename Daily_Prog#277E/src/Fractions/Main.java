@@ -39,5 +39,6 @@ public class Main {
             System.out.println(fractions.get(i).getAsString() + " = " + fractions.get(i).getSimplified().getAsString());
         }
 
+        scanner.close();
     }
 }
