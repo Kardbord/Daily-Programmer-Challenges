@@ -1,3 +1,5 @@
+package Fractions;
+
 /**
  * Daily_Prog#277E
  * Created on 5/17/2017
@@ -33,7 +35,7 @@ public class Fraction extends Pair<Integer, Integer> {
     }
 
     /**
-     * Simplifies the Fraction, alters the values of Numerator and Denominator
+     * Simplifies the Fractions.Fraction, alters the values of Numerator and Denominator
      */
     public void simplify() {
         Fraction simplified = Simplifier.simplify(this);
@@ -42,10 +44,10 @@ public class Fraction extends Pair<Integer, Integer> {
     }
 
     /**
-     * Simplifies the Fraction, but does not actually alter the data members.
-     * Returns the simplified Fraction as a new object.
+     * Simplifies the Fractions.Fraction, but does not actually alter the data members.
+     * Returns the simplified Fractions.Fraction as a new object.
      *
-     * @return the simplified Fraction
+     * @return the simplified Fractions.Fraction
      */
     public Fraction getSimplified() {
         return Simplifier.simplify(this);

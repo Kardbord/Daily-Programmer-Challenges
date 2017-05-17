@@ -1,3 +1,5 @@
+package Fractions;
+
 /**
  * Daily_Prog#277E
  * Created on 5/17/2017

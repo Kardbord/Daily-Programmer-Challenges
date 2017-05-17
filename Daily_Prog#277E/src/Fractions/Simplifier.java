@@ -1,8 +1,10 @@
+package Fractions;
+
 /**
  * Daily_Prog#277E
  * Created on 5/17/2017
  *
- * This class simplifies a Fraction
+ * This class simplifies a Fractions.Fraction
  *
  * @author Tanner Kvarfordt
  * @version 1.0
