@@ -7,7 +7,7 @@
  * @author Tanner Kvarfordt
  * @version 1.0
  */
-public class Fraction extends Pair<Integer> {
+public class Fraction extends Pair<Integer, Integer> {
 
     public Fraction(Integer first, Integer second) {
         super(first, second);

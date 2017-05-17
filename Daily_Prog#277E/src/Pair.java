@@ -7,31 +7,31 @@
  * @author Tanner Kvarfordt
  * @version 1.0
  */
-public class Pair<T> {
+public class Pair<T1, T2> {
 
-    public Pair(T first, T second) {
+    public Pair(T1 first, T2 second) {
         this.first = first;
 
         this.second = second;
     }
 
-    public T getFirst() {
+    public T1 getFirst() {
         return first;
     }
 
-    public T getSecond() {
+    public T2 getSecond() {
         return second;
     }
 
-    public void setFirst(T first) {
+    public void setFirst(T1 first) {
         this.first = first;
     }
 
-    public void setSecond(T second) {
+    public void setSecond(T2 second) {
         this.second = second;
     }
 
-    private T first;
+    private T1 first;
 
-    private T second;
+    private T2 second;
 }
