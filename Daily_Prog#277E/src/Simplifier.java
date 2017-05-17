@@ -29,6 +29,7 @@ public class Simplifier {
      * @param b is the second Integer
      * @return the greatest common factor of the a and b
      */
+    @SuppressWarnings("WeakerAccess")
     public static Integer computeGCF(Integer a, Integer b) {
         Integer c = Math.abs(a);
         Integer d = Math.abs(b);
