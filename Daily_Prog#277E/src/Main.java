@@ -9,6 +9,75 @@
  */
 public class Main {
     public static void main(String[] args) {
+        Fraction fraction = new Fraction(4, 8);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
 
+        fraction.setNumerator(8);
+        fraction.setDenominator(4);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+
+        fraction.setNumerator(0);
+        fraction.setDenominator(4);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+
+        fraction.setNumerator(8);
+        fraction.setDenominator(0);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+
+        fraction.setNumerator(15);
+        fraction.setDenominator(3);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+
+        fraction.setNumerator(3);
+        fraction.setDenominator(15);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+
+        fraction.setNumerator(17);
+        fraction.setDenominator(3);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+
+        fraction.setNumerator(3);
+        fraction.setDenominator(17);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+
+        fraction.setNumerator(-3);
+        fraction.setDenominator(17);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+
+        fraction.setNumerator(-3);
+        fraction.setDenominator(15);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+
+        fraction.setNumerator(3);
+        fraction.setDenominator(-15);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
+
+        fraction.setNumerator(-3);
+        fraction.setDenominator(-15);
+        System.out.print(fraction.getNumerator() + " / " + fraction.getDenominator());
+        fraction.simplify();
+        System.out.println(" = " + fraction.getNumerator() + " / " + fraction.getDenominator());
     }
 }

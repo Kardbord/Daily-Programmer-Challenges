@@ -29,7 +29,11 @@ public class Fraction extends Pair<Integer, Integer> {
         this.setSecond(denominator);
     }
 
-    // TODO: add simplify method which changes the value of numerator and denominator
+    public void simplify() {
+        Fraction simplified = Simplifier.simplify(this.getNumerator(), this.getDenominator());
+        this.setNumerator(simplified.getNumerator());
+        this.setDenominator(simplified.getDenominator());
+    }
 
     // TODO: add getSimplified method which returns the simplified fraction but does not change the actual values
 }
