@@ -9,6 +9,7 @@ package Fractions;
  * @author Tanner Kvarfordt
  * @version 1.0
  */
+@SuppressWarnings("WeakerAccess")
 public class Fraction extends Pair<Integer, Integer> {
 
     public Fraction(Integer numerator, Integer denominator) {
