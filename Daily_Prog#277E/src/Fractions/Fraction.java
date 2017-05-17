@@ -50,9 +50,9 @@ public class Fraction extends Pair<Integer, Integer> {
 
     /**
      * Simplifies the Fractions.Fraction, but does not actually alter the data members.
-     * Returns the simplified Fractions.Fraction as a new object.
+     * Returns the simplified Fraction as a new object.
      *
-     * @return the simplified Fractions.Fraction
+     * @return the simplified Fraction
      */
     public Fraction getSimplified() {
         return Simplifier.simplify(this);
