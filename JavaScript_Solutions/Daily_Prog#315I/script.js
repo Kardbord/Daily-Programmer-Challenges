@@ -1,3 +1,12 @@
+// Credit to LandOfTheLostPass on Reddit for some of this solution: https://jsfiddle.net/wpvx0L13/13/
+
+// global settings
+var cellSize = 10;
+var gridSize = 500;
+var showGrid = true;
+var svgNS = "http://www.w3.org/2000/svg";
+var lifeGrid = document.getElementById('lifeGrid');
+
 function toggleReadMe(button) {
     var div = button.parentNode;
     var readme = div.childNodes[2];
@@ -42,3 +51,26 @@ function toggleReadMe(button) {
         readme.appendChild(link);
     }
 }
+
+// Draw grid -- all credit to LandOfTheLostPass for this one
+if (showGrid) {
+    for (var i = cellSize; i < gridSize; i += cellSize) {
+        var lx = document.createElementNS(svgNS, 'line');
+        var ly = document.createElementNS(svgNS, 'line');
+        lx.setAttribute("x1", i.toString());
+        lx.setAttribute("x2", i.toString());
+        lx.setAttribute("y1", "0");
+        lx.setAttribute("y2", gridSize.toString());
+        lx.style.stroke = 'black';
+        lx.style.strokeWidth = 1;
+        lifeGrid.appendChild(lx);
+        ly.setAttribute("x1", "0");
+        ly.setAttribute("x2", gridSize.toString());
+        ly.setAttribute("y1", i.toString());
+        ly.setAttribute("y2", i.toString());
+        ly.style.stroke = 'black';
+        ly.style.strokeWidth = 1;
+        lifeGrid.appendChild(ly);
+    }
+}
+
