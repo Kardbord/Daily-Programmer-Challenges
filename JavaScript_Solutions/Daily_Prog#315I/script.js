@@ -6,8 +6,11 @@ function toggleReadMe(button) {
         div.removeChild(readme);
     } else {
         var childDiv = document.createElement('div');
-        readme = document.createElement('a');
-        // TODO: make readme an <a> tag
+        var link = document.createElement('a');
+        link.setAttribute("href", "https://www.reddit.com/r/dailyprogrammer/comments/6bumxo/20170518_challenge_315_intermediate_game_of_life/");
+        link.textContent = "Daily Programmer challenge #315 Intermediate";
+        readme = document.createElement('p');
+        readme.setAttribute("class", "readme");
         readme.textContent = "This challenge is based on a game (the mathematical variety - not quite as fun!) called Conway's Game of Life. This is"
             + " called a cellular automaton. This means it is based on a 'playing field' of sorts, made up of lots of little cells or"
             + " spaces. For Conway's game of life, the grid is square - but other shapes like hexagonal ones could potentially exist"
@@ -30,8 +33,10 @@ function toggleReadMe(button) {
             + "        - apply normal rules, meaning that you have to count in the cells of other colors as alive cells\n"
             + "        - If the amount of the other colors is greater then amount of that cell's own color then it just changes color.\n "
             + "Last if a cell is 'off' and has 3 neighbour cells that are alive it will be the color that is the most represented.\n"
-            + "Your challenge is, given a width and height to create a grid and a number of turns to simulate this variant.";
+            + "Your challenge is, given a width and height to create a grid and a number of turns to simulate this variant.\n"
+            + "Challenge page: ";
         div.appendChild(childDiv);
         childDiv.appendChild(readme);
+        readme.appendChild(link);
     }
 }
