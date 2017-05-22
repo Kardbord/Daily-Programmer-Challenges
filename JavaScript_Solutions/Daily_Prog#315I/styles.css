@@ -9,5 +9,6 @@ button {
 
 .readme {
     text-align: left;
+    white-space: pre;
     font-size: 20pt;
 }
