@@ -1,5 +1,10 @@
 .centered {
     text-align: center;
+    font-size: 20pt;
+}
+
+button {
+    font-size: 16pt;
 }
 
 .readme {
