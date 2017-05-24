@@ -1,3 +1,9 @@
+!!!THIS PROJECT HAS BEEN ABANDONED FOR THE FORESEEABLE FUTURE!!!
+I bit off a bit more than I could chew with this one, or at least as far 
+as what I was hoping to achieve with it. I was gunning for a similar solution to
+LandOfTheLostPass's solution as seen here: https://jsfiddle.net/wpvx0L13/13/
+Too ambitious for me for now. Maybe one day I'll come back and work on it.
+
 Daily Programmer Challenge #315 \[Intermediate\]
 
 https://www.reddit.com/r/dailyprogrammer/comments/6bumxo/20170518_challenge_315_intermediate_game_of_life/
