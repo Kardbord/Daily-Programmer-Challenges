@@ -3,3 +3,7 @@
 //
 
 #include "ToursDB.h"
+
+bool ToursDB::addTour(Tour const &tour) {
+    return insert(std::make_pair(tour.getID(), tour)).second;
+}

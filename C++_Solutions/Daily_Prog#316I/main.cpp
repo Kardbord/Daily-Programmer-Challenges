@@ -1,6 +1,10 @@
 #include <iostream>
+#include "ToursDB.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    ToursDB toursDB;
+
+    Tour tour("OH", "asdf", 200);
+
+    toursDB.addTour(tour);
 }
