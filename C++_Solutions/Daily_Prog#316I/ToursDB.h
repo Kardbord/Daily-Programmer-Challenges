@@ -10,7 +10,7 @@
 #include <utility>
 #include "Tour.h"
 
-class ToursDB : public std::map<std::string, Tour> {
+class ToursDB : protected std::map<std::string, Tour> {
 public:
 
     ToursDB() {}
