@@ -9,6 +9,8 @@
 #include <map>
 #include <utility>
 
+// TODO: update this class such that the nature of the promotion is described (you know, the whole point of all of this)
+
 /**
  * This class provides a set of rules by which promotions may be applied to a Cart. The m_rules member contains key-value
  * pairs where the key is the ID of a Tour object that the Promotion applies to, and the value is the minimum number of these tours
@@ -49,6 +51,12 @@ private:
      * The unique ID of this Promotion
      */
     std::string m_promo_id;
+
+    // TODO: add bool m_givesFreebie and implement appropriately
+
+    // TODO: add bool m_givesDiscount and implement appropriately
+
+    // TODO: somehow track freebies and/or discounts to be applied
 
 };
 

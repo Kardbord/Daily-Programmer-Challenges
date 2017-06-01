@@ -11,6 +11,8 @@
 #include <fstream>
 #include <vector>
 
+// TODO: a thing
+
 class PromoDB : protected std::map<std::string, Promotion> {
 public:
     PromoDB(ToursDB const &toursDB);
