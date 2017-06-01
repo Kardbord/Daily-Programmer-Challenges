@@ -17,7 +17,7 @@ As we want to attract attention, we intend to have a few weekly specials.
 We are going to have a 3 for 2 deal on opera house ticket. For example, if you buy 3 tickets, you will pay the price of
 2 only getting another one completely free of charge.
 We are going to give a free Sky Tower tour for with every Opera House tour sold.
-The Sydney Bridge Climb will have a bulk discount applied, where the price will drop $20, if someone buys more than 4
+The Sydney Bridge Climb will have a bulk discount applied, where the price will drop $20, if someone buys more than 4.
 These promotional rules have to be as flexible as possible as they will change in the future. Items can be added in any
 order.
 An object oriented interface could look like:
