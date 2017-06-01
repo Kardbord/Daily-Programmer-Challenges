@@ -19,10 +19,11 @@ class Promotion {
 public:
 
     /**
+     * @param promo_id is the unique ID associated with this Promotion
      * @param tour_id corresponds to the ID of a Tour for which the Promotion applies to.
      * @param amt_req is the amount of tours of the given tour_id that must be present for the promo to apply
      */
-    Promotion(std::string const &tour_id, unsigned int const &amt_req);
+    Promotion(std::string const &promo_id, std::string const &tour_id, unsigned int const &amt_req);
 
     /**
      *
@@ -34,6 +35,8 @@ public:
 
     std::map<std::string, unsigned int> getRules() const { return m_rules; }
 
+    std::string getID() const { return m_promo_id; }
+
 private:
 
     /**
@@ -41,6 +44,11 @@ private:
      * The value is the minimum number of tours with the given ID that must be present for the discount to apply.
      */
     std::map<std::string, unsigned int> m_rules;
+
+    /**
+     * The unique ID of this Promotion
+     */
+    std::string m_promo_id;
 
 };
 
