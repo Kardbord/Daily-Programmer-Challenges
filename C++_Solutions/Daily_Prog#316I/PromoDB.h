@@ -11,7 +11,7 @@
 #include <fstream>
 #include <vector>
 
-// TODO: a thing
+// TODO: update constructors to handle new functionaliy of the Promotion class, outlined in other TODOs
 
 class PromoDB : protected std::map<std::string, Promotion> {
 public:
