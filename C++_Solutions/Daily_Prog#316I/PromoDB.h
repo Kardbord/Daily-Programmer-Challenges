@@ -11,8 +11,6 @@
 #include <fstream>
 #include <vector>
 
-// TODO: handle 'ALL' key case -- reserve this key for PromoDB use
-
 class PromoDB : protected std::map<std::string, Promotion> {
 public:
     PromoDB(ToursDB const &toursDB);

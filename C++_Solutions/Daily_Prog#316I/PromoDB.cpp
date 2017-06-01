@@ -17,6 +17,7 @@ PromoDB::PromoDB(ToursDB const &toursDB) {
     for (int i = 0; i < validKeys.size(); ++i) {
         if (i == 0) {
             Promotion promo("ALL", validKeys[i], 0);
+            this->insert(std::make_pair(promo.getID(), promo));
         } else {
             this->at("ALL").addRule(validKeys[i], 0);
         }
