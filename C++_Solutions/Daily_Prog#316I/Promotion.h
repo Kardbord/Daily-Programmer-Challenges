@@ -8,6 +8,7 @@
 #include <string>
 #include <map>
 #include <utility>
+#include <vector>
 
 // TODO: update this class such that the nature of the promotion is described (you know, the whole point of all of this)
 
@@ -39,6 +40,10 @@ public:
 
     std::string getID() const { return m_promo_id; }
 
+    unsigned int getDiscountValue() const { return m_discount; }
+
+    std::vector<std::map<std::string, unsigned int>> getFreebies() const { return m_freebies; };
+
 private:
 
     /**
@@ -52,11 +57,19 @@ private:
      */
     std::string m_promo_id;
 
-    // TODO: add bool m_givesFreebie and implement appropriately
+    /**
+     * A Vector object containing a Map, which contains the IDs of the Tours to be given for free as the key, and
+     * the number of those Tours to be given for free as the value. m_freebies is defaultly constructed if not applicable.
+     * TODO initialize member
+     */
+    std::vector<std::map<std::string, unsigned int>> m_freebies;
 
-    // TODO: add bool m_givesDiscount and implement appropriately
-
-    // TODO: somehow track freebies and/or discounts to be applied
+    /**
+     * An unsigned int containing the value of the discount to be applied.
+     * m_discount is initialized to 0 if not applicable.
+     * TODO initialize member
+     */
+    unsigned int m_discount;
 
 };
 
