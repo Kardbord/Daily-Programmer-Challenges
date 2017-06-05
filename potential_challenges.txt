@@ -9,3 +9,15 @@ Potential/Interesting Challenges:
     - 277 Intermediate: Fake Coins
         - https://www.reddit.com/r/dailyprogrammer/comments/4utlaz/20160727_challenge_277_intermediate_fake_coins/
 
+My own challenges:
+   
+    - Music shuffler
+        - iTunes and Spotify's shuffle button sucks. Not a true shuffle, and only actually provides one or two different shuffles
+	    - shouldn't be too hard --- just a little something to vent my frustration on
+	        - What? Lack of good shuffling is annoying.
+        - Pretty much just have to find an efficient way to take a load of numbers and list them in a random order whenever desired.
+	- Could actually create some sort of database with artist, track name, album, etc if I felt like an extra challenge
+	    - probably should do this since shuffling numbers is basically inherently present in every programming language...
+
+Google Challenges:
+    - Check out https://code.google.com/codejam/past-contests#kickstart
