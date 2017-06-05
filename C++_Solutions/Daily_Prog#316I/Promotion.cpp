@@ -5,17 +5,42 @@
 #include "Promotion.h"
 
 Promotion::Promotion(std::string const &promo_id)
-        : m_rules(), m_promo_id(promo_id) {
+        : m_rules(), m_promo_id(promo_id), m_discount(0), m_freebies() {
 
     if (promo_id == "" || m_promo_id == "") {
         throw std::invalid_argument("promo_id cannot be an empty string");
     }
 }
 
-bool Promotion::addRule(std::string const &tour_id, unsigned int const &amt_req) {
+bool Promotion::addRule(std::string const &tour_id, unsigned int const &amt_req, unsigned int const &discount) {
     if (tour_id == "") {
         throw std::invalid_argument("tour_id cannot be an empty string");
     }
 
-    return m_rules.insert(std::make_pair(tour_id, amt_req)).second;
+    if (discount == 0) {
+        throw std::invalid_argument("discount must be greater than 0");
+    }
+
+    if (m_rules.insert(std::make_pair(tour_id, amt_req)).second) {
+        m_discount = discount;
+        return true;
+    } else return false;
+}
+
+bool Promotion::addRule(std::string const &tour_id, unsigned int const &amt_req,
+                        std::vector<std::pair<std::string, unsigned int>> const &freebies) {
+    if (tour_id == "") {
+        throw std::invalid_argument("tour_id cannot be an empty string");
+    }
+
+    if (freebies.size() < 1) {
+        throw std::invalid_argument("'freebies' vector cannot be empty");
+    }
+
+    if (m_rules.insert(std::make_pair(tour_id, amt_req)).second) {
+        for (auto &&pair : freebies) {
+            m_freebies.push_back(pair);
+        }
+        return true;
+    } else return false;
 }

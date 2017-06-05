@@ -10,8 +10,6 @@
 #include <utility>
 #include <vector>
 
-// TODO: update this class such that the nature of the promotion is described (you know, the whole point of all of this)
-
 /**
  * This class provides a set of rules by which promotions may be applied to a Cart. The m_rules member contains key-value
  * pairs where the key is the ID of a Tour object that the Promotion applies to, and the value is the minimum number of these tours
@@ -33,9 +31,20 @@ public:
      *
      * @param tour_id corresponds to the ID of a Tour for which the Promotion applies to
      * @param amt_req is the amount of tours of the given tour_id that must be present for the promo to apply
+     * @param discount is the discount to be applied
      * @return true if the rule was successfully added, false otherwise
      */
-    bool addRule(std::string const &tour_id, unsigned int const &amt_req);
+    bool addRule(std::string const &tour_id, unsigned int const &amt_req, unsigned int const &discount);
+
+    /**
+     *
+     * @param tour_id corresponds to the ID of a Tour for which the Promotion applies to
+     * @param amt_req is the amount of tours of the given tour_id that must be present for the promo to apply
+     * @param freebies contains freebie pairs where the first item in the pair is the ID of the tour for which freebies will be given, and the second item is the amount of freebies to be given
+     * @return true if the rule was successfully added, false otherwise
+     */
+    bool addRule(std::string const &tour_id, unsigned int const &amt_req,
+                 std::vector<std::pair<std::string, unsigned int>> const &freebies);
 
     std::map<std::string, unsigned int> getRules() const { return m_rules; }
 
@@ -43,7 +52,7 @@ public:
 
     unsigned int getDiscountValue() const { return m_discount; }
 
-    std::vector<std::map<std::string, unsigned int>> getFreebies() const { return m_freebies; };
+    std::vector<std::pair<std::string, unsigned int>> getFreebies() const { return m_freebies; };
 
 private:
 
@@ -59,16 +68,14 @@ private:
     std::string m_promo_id;
 
     /**
-     * A Vector object containing a Map, which contains the IDs of the Tours to be given for free as the key, and
+     * A Vector object containing pairs, which contain the IDs of the Tours to be given for free as the key, and
      * the number of those Tours to be given for free as the value. m_freebies is defaultly constructed if not applicable.
-     * TODO initialize member
      */
-    std::vector<std::map<std::string, unsigned int>> m_freebies;
+    std::vector<std::pair<std::string, unsigned int>> m_freebies;
 
     /**
      * An unsigned int containing the value of the discount to be applied.
      * m_discount is initialized to 0 if not applicable.
-     * TODO initialize member
      */
     unsigned int m_discount;
 
