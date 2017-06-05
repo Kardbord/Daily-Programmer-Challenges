@@ -11,7 +11,7 @@
 #include <fstream>
 #include <vector>
 
-// TODO: update constructors to handle new functionaliy of the Promotion class, outlined in other TODOs
+// TODO: update this class to be consistent with the new addRule functions in Promotion.h
 
 class PromoDB : protected std::map<std::string, Promotion> {
 public:
