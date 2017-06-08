@@ -6,20 +6,26 @@
 #include "PromoDB.h"
 #include "Utils.h"
 
-
-PromoDB::PromoDB(ToursDB const &toursDB) {
-    std::vector<std::string> validKeys;
+/**
+ *
+ * @param toursDB is a ToursDB object. It is used to build a set of valid tour IDs that Promotions can apply to.
+ * @param freebies are any free Tours to be applied to am entire cart regardless of any rules
+ * @param discount is the discount to be applied to an entire cart regardless of any rules
+ */
+PromoDB::PromoDB(ToursDB const &toursDB, std::vector<std::pair<std::string, unsigned int>> freebies,
+                 unsigned int discount) {
+    std::vector<std::string> validTourKeys;
 
     for (auto &&tour : toursDB) {
-        validKeys.push_back(tour.first);
+        validTourKeys.push_back(tour.first);
     }
 
-    for (int i = 0; i < validKeys.size(); ++i) {
-        if (i == 0) {
-            Promotion promo("ALL", validKeys[i], 0);
-            this->insert(std::make_pair(promo.getID(), promo));
-        } else {
-            this->at("ALL").addRule(validKeys[i], 0);
+    Promotion promo("ALL");
+    this->insert(std::make_pair(promo.getID(), promo));
+    for (int i = 0; i < validTourKeys.size(); ++i) {
+        this->at("ALL").addRule(validTourKeys[i], 0, freebies);
+        if (discount != 0) {
+            this->at("ALL").addRule(validTourKeys[i], 0, discount);
         }
     }
 }
