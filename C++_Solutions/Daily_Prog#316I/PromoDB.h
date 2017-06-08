@@ -34,7 +34,8 @@ public:
      *     - Each line follows the format:
      *         <promo_id> <number of tour_id's (keys) to expect> <appropriate number of tour id's> <appropriate number of amt_req values to go with the tour_ids>
      */
-    PromoDB(ToursDB const &toursDB, std::ifstream &fin);
+    PromoDB(ToursDB const &toursDB, std::ifstream &fin, std::vector<std::pair<std::string, unsigned int>> freebies,
+            unsigned int discount);
 
 };
 

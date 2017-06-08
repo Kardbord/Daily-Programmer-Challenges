@@ -38,9 +38,10 @@ PromoDB::PromoDB(ToursDB const &toursDB, std::vector<std::pair<std::string, unsi
  * The input file must be formatted as follows:
  *     - One Promotion per line
  *     - Each line follows the format:
- *         <number of tour_id's (keys) to expect> <promo_id> <appropriate number of tour id's> <appropriate number of amt_req values to go with the tour_ids>
+ * <number of tour_ids (keys) to expect> <promo_id> <appropriate # of tour id's> <appropriate # of amt_req values to go with the tour_ids>
  */
-PromoDB::PromoDB(ToursDB const &toursDB, std::ifstream &fin) : PromoDB(toursDB) {
+PromoDB::PromoDB(ToursDB const &toursDB, std::ifstream &fin, std::vector<std::pair<std::string, unsigned int>> freebies,
+                 unsigned int discount) : PromoDB(toursDB, freebies, discount) {
     std::string line = "";
     std::string delimiter = " ";
 
