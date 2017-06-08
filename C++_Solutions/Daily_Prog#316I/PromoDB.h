@@ -24,6 +24,17 @@ public:
      */
     PromoDB(ToursDB const &toursDB, std::vector<std::pair<std::string, unsigned int>> freebies, unsigned int discount);
 
+    /**
+     *
+     * @param promo_id is the unique ID of the Promotion
+     * @param rules is a vector where each entry contains the id and quantity of that tour that must be present
+     * @param discount is the discount to be applied if the rules are met
+     * @param freebies are the freebies to be applied if the rules are met
+     * @return true if the Promotion was successfully added to the database, false otherwise
+     */
+    bool addPromotion(std::string const &promo_id, std::vector<std::pair<std::string, unsigned int>> const &rules,
+                      unsigned int discount, std::vector<std::pair<std::string, unsigned int>> const &freebies);
+
 };
 
 

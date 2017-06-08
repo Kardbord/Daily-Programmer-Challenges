@@ -29,4 +29,27 @@ PromoDB::PromoDB(ToursDB const &toursDB, std::vector<std::pair<std::string, unsi
     }
 }
 
+/**
+ *
+ * @param promo_id is the unique ID of the Promotion
+ * @param rules is a vector where each entry contains the id and quantity of that tour that must be present
+ * @param discount is the discount to be applied if the rules are met
+ * @param freebies are the freebies to be applied if the rules are met
+ * @return true if the Promotion was successfully added to the database, false otherwise
+ */
+bool PromoDB::addPromotion(std::string const &promo_id, std::vector<std::pair<std::string, unsigned int>> const &rules,
+                           unsigned int discount, std::vector<std::pair<std::string, unsigned int>> const &freebies) {
+
+    Promotion newPromo(promo_id);
+
+    for (auto &&tour_qty_pair : rules) {
+        newPromo.addRule(tour_qty_pair.first, tour_qty_pair.second, freebies);
+        if (discount != 0) {
+            newPromo.updateDiscount(discount);
+        }
+    }
+
+    return this->insert(std::make_pair(promo_id, newPromo)).second;
+}
+
 
