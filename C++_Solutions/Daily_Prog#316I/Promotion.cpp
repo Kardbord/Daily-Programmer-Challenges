@@ -22,7 +22,7 @@ bool Promotion::addRule(std::string const &tour_id, unsigned int const &amt_req,
     }
 
     if (m_rules.insert(std::make_pair(tour_id, amt_req)).second) {
-        m_discount = discount;
+        m_discount += discount;
         return true;
     } else return false;
 }
