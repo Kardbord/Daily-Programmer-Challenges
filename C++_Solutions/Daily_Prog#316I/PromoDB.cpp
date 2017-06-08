@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include "PromoDB.h"
-#include "Utils.h"
 
 /**
  *
