@@ -18,6 +18,8 @@ public:
     PromoDB(ToursDB const &toursDB);
 
     /**
+     *
+     * @param toursDB is a ToursDB object. It is used to build a set of valid tour IDs that Promotions can apply to.
      * @param fin is the input file through which promotions will be created and added to the PromoDB
      *
      * The input file must be formatted as follows:

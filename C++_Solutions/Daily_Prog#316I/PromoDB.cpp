@@ -25,13 +25,15 @@ PromoDB::PromoDB(ToursDB const &toursDB) {
 }
 
 /**
-* @param fin is the input file through which promotions will be created and added to the PromoDB
-*
-* The input file must be formatted as follows:
-*     - One Promotion per line
-*     - Each line follows the format:
-*         <number of tour_id's (keys) to expect> <promo_id> <appropriate number of tour id's> <appropriate number of amt_req values to go with the tour_ids>
-*/
+ *
+ * @param toursDB is a ToursDB object. It is used to build a set of valid tour IDs that Promotions can apply to.
+ * @param fin is the input file through which promotions will be created and added to the PromoDB
+ *
+ * The input file must be formatted as follows:
+ *     - One Promotion per line
+ *     - Each line follows the format:
+ *         <number of tour_id's (keys) to expect> <promo_id> <appropriate number of tour id's> <appropriate number of amt_req values to go with the tour_ids>
+ */
 PromoDB::PromoDB(ToursDB const &toursDB, std::ifstream &fin) : PromoDB(toursDB) {
     std::string line = "";
     std::string delimiter = " ";
