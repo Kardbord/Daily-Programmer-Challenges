@@ -52,6 +52,20 @@ public:
 
     std::vector<std::pair<std::string, unsigned int>> getFreebies() const { return m_freebies; };
 
+    /**
+     * Completely overwrites the current discount and makes it the value provided instead
+     *
+     * @param newDiscount the new discount value for the Promotion
+     */
+    void updateDiscount(unsigned int const &newDiscount);
+
+    /**
+     * Takes the current discount value, and adds modAmt to it
+     *
+     * @param modAmt is the number to be added to the current discount value
+     */
+    void modifyDiscount(int const &modAmt);
+
 private:
 
     /**

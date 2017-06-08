@@ -44,3 +44,13 @@ bool Promotion::addRule(std::string const &tour_id, unsigned int const &amt_req,
         return true;
     } else return false;
 }
+
+void Promotion::updateDiscount(unsigned int const &newDiscount) {
+    m_discount = newDiscount;
+}
+
+void Promotion::modifyDiscount(int const &modAmt) {
+    if (modAmt < 0 && std::abs(modAmt) > m_discount) {
+        m_discount = 0;
+    } else m_discount += modAmt;
+}
