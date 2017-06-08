@@ -11,8 +11,6 @@
 #include <fstream>
 #include <vector>
 
-// TODO: update this class to be consistent with the new addRule functions in Promotion.h
-
 class PromoDB : protected std::map<std::string, Promotion> {
 public:
 
