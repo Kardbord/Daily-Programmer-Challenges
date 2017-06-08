@@ -22,8 +22,6 @@ public:
     /**
      *
      * @param promo_id is the unique ID associated with this Promotion
-     * @param tour_id corresponds to the ID of a Tour for which the Promotion applies to.
-     * @param amt_req is the amount of tours of the given tour_id that must be present for the promo to apply
      */
     Promotion(std::string const &promo_id);
 
