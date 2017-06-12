@@ -11,6 +11,7 @@
 ToursDB initTourDatabase();
 PromoDB initPromotionDatabase(ToursDB const &toursDB);
 
+// TODO: Figure out why this won't compile! Something is effed with a constructor somewhere... too much frustration for today. Will find later.
 int main(int argc, char *argv[]) {
     if (argc < 2 || argc > 3) {
         std::cerr << "Incorrect number of command line arguments -- expected 1 to 2" << std::endl;
