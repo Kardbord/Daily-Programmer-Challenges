@@ -7,15 +7,15 @@
 Cart::Cart(PromoDB const &promoDB, ToursDB const &toursDB) : m_promoDB(promoDB), m_tourDB(toursDB), m_items(),
                                                              m_quantities() {}
 
-bool Cart::addTour(Tour const &tour) {
-    if (m_tourDB.find(tour.getID()) != m_tourDB.end()) {
-        m_items.push_back(tour);
+bool Cart::addTour(std::string const &tour_id) {
+    if (m_tourDB.find(tour_id) != m_tourDB.end()) {
+        m_items.push_back(m_tourDB[tour_id]);
 
-        auto it = m_quantities.find(tour.getID());
+        auto it = m_quantities.find(tour_id);
         if (it != m_quantities.end()) {
             it->second += 1;
         } else {
-            m_quantities[tour.getID()] = 0;
+            m_quantities[tour_id] = 0;
         }
 
         return true;
