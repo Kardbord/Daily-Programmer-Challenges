@@ -8,7 +8,8 @@
 ToursDB initTourDatabase();
 PromoDB initPromotionDatabase(ToursDB const &toursDB);
 
-int main() {
+// TODO: take orders via file given from command line
+int main(int argc, char *argv[]) {
 
 }
 
