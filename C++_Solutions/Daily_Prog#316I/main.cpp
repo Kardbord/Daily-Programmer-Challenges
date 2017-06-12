@@ -1,5 +1,8 @@
+#include <iostream>
 #include "ToursDB.h"
 #include "PromoDB.h"
+#include "Cart.h"
+#include "Utils.h"
 
 /*
  * Created by Tanner
@@ -8,10 +11,39 @@
 ToursDB initTourDatabase();
 PromoDB initPromotionDatabase(ToursDB const &toursDB);
 
-// TODO: take orders via file given from command line
 int main(int argc, char *argv[]) {
+    if (argc < 2 || argc > 3) {
+        std::cerr << "Incorrect number of command line arguments -- expected 1 to 2" << std::endl;
+        return EXIT_FAILURE;
+    }
+
+    std::ifstream fin(argv[1]);
+    if (!fin) {
+        std::cerr << "Could not open input file" << std::endl;
+        return EXIT_FAILURE;
+    }
+
     ToursDB toursDB = initTourDatabase();
     PromoDB promoDB = initPromotionDatabase(toursDB);
+    Cart cart(promoDB, toursDB);
+
+    std::string line = "";
+    while (std::getline(fin, line)) {
+        for (auto && token : Utils::parseString(line, " ")) {
+            cart.addTour(token);
+        }
+    }
+
+    if (argc == 2) {
+        cart.printOrder(std::cout);
+    } else if (argc == 3) {
+        std::ofstream fout(argv[2]);
+        cart.printOrder(fout);
+        fout.close();
+    }
+
+    fin.close();
+    return EXIT_SUCCESS;
 }
 
 ToursDB initTourDatabase() {
