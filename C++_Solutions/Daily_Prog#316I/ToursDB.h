@@ -13,8 +13,7 @@
 class ToursDB : protected std::map<std::string, Tour> {
 public:
 
-    // Constructor
-    using std::map<std::string, Tour>::map;
+    ToursDB() {}
 
     /**
      * Attempts to add the tour to the database. If the tour's id is already present, returns false.
