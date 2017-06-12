@@ -31,6 +31,9 @@ public:
      */
     static std::vector<std::string> parseString(std::string s, std::string const &delim);
 
+private:
+    Utils() {}
+
 };
 
 
