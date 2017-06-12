@@ -8,10 +8,11 @@
  * Created by Tanner
  */
 
+// TODO: Debug this mofo. Output in receipt.txt does not match expected output from README.md
+
 ToursDB initTourDatabase();
 PromoDB initPromotionDatabase(ToursDB const &toursDB);
 
-// TODO: Figure out why this won't compile! Something is effed with a constructor somewhere... too much frustration for today. Will find later.
 int main(int argc, char *argv[]) {
     if (argc < 2 || argc > 3) {
         std::cerr << "Incorrect number of command line arguments -- expected 1 to 2" << std::endl;
@@ -26,24 +27,28 @@ int main(int argc, char *argv[]) {
 
     ToursDB toursDB = initTourDatabase();
     PromoDB promoDB = initPromotionDatabase(toursDB);
-    Cart cart(promoDB, toursDB);
+    std::ofstream fout;
+    if (argc == 3) {
+        fout.open(argv[2]);
+    }
+
 
     std::string line = "";
     while (std::getline(fin, line)) {
+        Cart cart(promoDB, toursDB);
         for (auto && token : Utils::parseString(line, " ")) {
             cart.addTour(token);
         }
-    }
 
-    if (argc == 2) {
-        cart.printOrder(std::cout);
-    } else if (argc == 3) {
-        std::ofstream fout(argv[2]);
-        cart.printOrder(fout);
-        fout.close();
+        if (argc == 2) {
+            cart.printOrder(std::cout);
+        } else if (argc == 3) {
+            cart.printOrder(fout);
+        }
     }
 
     fin.close();
+    fout.close();
     return EXIT_SUCCESS;
 }
 
