@@ -21,10 +21,15 @@ public:
      */
     bool addTour(Tour const &tour);
 
-
+    unsigned int total();
 
 private:
     std::vector<Tour> m_items;
+
+    /**
+     * Map object where the key is a Tour id and the value is the quantity of that tour present in the cart
+     */
+    std::map<std::string, unsigned int> m_quantities;
 
     PromoDB m_promoDB;
 
