@@ -9,7 +9,7 @@ Cart::Cart(PromoDB const &promoDB, ToursDB const &toursDB) : m_promoDB(promoDB),
 
 bool Cart::addTour(std::string const &tour_id) {
     if (m_tourDB.find(tour_id) != m_tourDB.end()) {
-        m_items.push_back(m_tourDB[tour_id]);
+        m_items.push_back(m_tourDB.at(tour_id)); // TODO: The problem is here... attempting to default construct a Tour that doesn't exist in m_tourDB
 
         auto it = m_quantities.find(tour_id);
         if (it != m_quantities.end()) {

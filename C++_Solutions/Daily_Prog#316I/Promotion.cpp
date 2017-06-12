@@ -33,7 +33,7 @@ bool Promotion::addRule(std::string const &tour_id, unsigned int const &amt_req,
         throw std::invalid_argument("tour_id cannot be an empty string");
     }
 
-    if (freebies.size() < 1) {
+    if (freebies.empty()) {
         throw std::invalid_argument("'freebies' vector cannot be empty");
     }
 

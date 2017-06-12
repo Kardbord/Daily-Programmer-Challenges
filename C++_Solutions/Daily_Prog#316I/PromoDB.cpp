@@ -22,9 +22,15 @@ PromoDB::PromoDB(ToursDB const &toursDB, std::vector<std::pair<std::string, unsi
     Promotion promo("ALL");
     this->insert(std::make_pair(promo.getID(), promo));
     for (int i = 0; i < validTourKeys.size(); ++i) {
-        this->at("ALL").addRule(validTourKeys[i], 0, freebies);
-        if (discount != 0) {
-            this->at("ALL").addRule(validTourKeys[i], 0, discount);
+        if (freebies.empty()) {
+            if (discount == 0) {
+                this->at("ALL").addRule(validTourKeys[i], 0, 1);
+                this->at("ALL").updateDiscount(0);
+            } else {
+                this->at("ALL").addRule(validTourKeys[i], 0, discount);
+            }
+        } else {
+            this->at("ALL").addRule(validTourKeys[i], 0, freebies);
         }
     }
 }
@@ -43,9 +49,10 @@ bool PromoDB::addPromotion(std::string const &promo_id, std::vector<std::pair<st
     Promotion newPromo(promo_id);
 
     for (auto &&tour_qty_pair : rules) {
-        newPromo.addRule(tour_qty_pair.first, tour_qty_pair.second, freebies);
-        if (discount != 0) {
-            newPromo.updateDiscount(discount);
+        if (freebies.empty()) {
+            newPromo.addRule(tour_qty_pair.first, tour_qty_pair.second, discount);
+        } else {
+            newPromo.addRule(tour_qty_pair.first, tour_qty_pair.second, freebies);
         }
     }
 
