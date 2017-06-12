@@ -10,7 +10,8 @@ PromoDB initPromotionDatabase(ToursDB const &toursDB);
 
 // TODO: take orders via file given from command line
 int main(int argc, char *argv[]) {
-
+    ToursDB toursDB = initTourDatabase();
+    PromoDB promoDB = initPromotionDatabase(toursDB);
 }
 
 ToursDB initTourDatabase() {
