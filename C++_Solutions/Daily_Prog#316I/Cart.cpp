@@ -29,24 +29,51 @@ unsigned int Cart::total() const {
     }
 
     for (auto &&pair : m_promoDB) {
-        Promotion promo = pair.second;
-
-        bool promoApplies = true;
-        for (auto &&rule : promo.getRules()) {
-            auto it = m_quantities.find(rule.first);
-            if (it != m_quantities.end()) {
-                if (it->second != rule.second) {
-                    promoApplies = false;
-                }
-            } else {
-                promoApplies = false;
-            }
-        }
-        if (promoApplies) {
-            total -= promo.getDiscountValue();
+        if (promoApplies(pair.second)) {
+            total -= pair.second.getDiscountValue();
         }
     }
 
     return total;
 }
+
+void Cart::printOrder(std::ostream &out) const {
+    out << "***Receipt***" << std::endl << std::endl;
+    out << "Items:" << std::endl;
+
+    for (auto &&item : m_items) {
+        out << item.getID() << " ";
+    }
+
+    out << std::endl << std::endl << "Free Items:" << std::endl;
+
+    for (auto &&pair : m_promoDB) {
+        if (promoApplies(pair.second)) {
+
+            for (auto &&freebie : pair.second.getFreebies()) {
+                out << freebie.first << "x" << freebie.second << " ";
+            }
+
+        }
+    }
+
+    out << std::endl << std::endl << "Total: " << total() << std::endl << std::endl;
+
+}
+
+bool Cart::promoApplies(Promotion const &promo) const {
+
+    for (auto &&rule : promo.getRules()) {
+        auto it = m_quantities.find(rule.first);
+        if (it != m_quantities.end()) {
+            if (it->second != rule.second) {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
+
 

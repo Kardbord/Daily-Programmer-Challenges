@@ -17,11 +17,13 @@ public:
     /**
      *
      * @param tour is the Tour to be added to m_items
-     * @return true if the Tour is succesfully added, false otherwise
+     * @return true if the Tour is successfully added, false otherwise
      */
     bool addTour(Tour const &tour);
 
     unsigned int total() const;
+
+    void printOrder(std::ostream &out) const;
 
 private:
     std::vector<Tour> m_items;
@@ -34,6 +36,8 @@ private:
     PromoDB m_promoDB;
 
     ToursDB m_tourDB;
+
+    bool promoApplies(Promotion const &promo) const;
 };
 
 
