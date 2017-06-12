@@ -13,7 +13,8 @@
 class ToursDB : protected std::map<std::string, Tour> {
 public:
 
-    ToursDB() {}
+    // Constructor
+    using std::map<std::string, Tour>::map;
 
     /**
      * Attempts to add the tour to the database. If the tour's id is already present, returns false.
@@ -24,6 +25,25 @@ public:
      */
     bool addTour(Tour const &tour);
 
+    // Allow access to some, but not all superclass functions
+
+    using std::map<std::string, Tour>::find;
+
+    using std::map<std::string, Tour>::at;
+
+    using std::map<std::string, Tour>::operator[];
+
+    using std::map<std::string, Tour>::erase;
+
+    using std::map<std::string, Tour>::clear;
+
+    using std::map<std::string, Tour>::operator=;
+
+    using std::map<std::string, Tour>::empty;
+
+    using std::map<std::string, Tour>::end;
+
+    using std::map<std::string, Tour>::begin;
 };
 
 

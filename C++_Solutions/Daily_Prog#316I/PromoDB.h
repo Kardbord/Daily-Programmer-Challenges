@@ -33,6 +33,25 @@ public:
     bool addPromotion(std::string const &promo_id, std::vector<std::pair<std::string, unsigned int>> const &rules,
                       unsigned int discount, std::vector<std::pair<std::string, unsigned int>> const &freebies);
 
+    // Allow access to some, but not all superclass functions
+
+    using std::map<std::string, Promotion>::find;
+
+    using std::map<std::string, Promotion>::at;
+
+    using std::map<std::string, Promotion>::operator[];
+
+    using std::map<std::string, Promotion>::erase;
+
+    using std::map<std::string, Promotion>::clear;
+
+    using std::map<std::string, Promotion>::operator=;
+
+    using std::map<std::string, Promotion>::empty;
+
+    using std::map<std::string, Promotion>::end;
+
+    using std::map<std::string, Promotion>::begin;
 };
 
 
