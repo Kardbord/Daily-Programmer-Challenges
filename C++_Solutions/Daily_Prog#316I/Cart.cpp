@@ -22,7 +22,7 @@ bool Cart::addTour(Tour const &tour) {
     } else return false;
 }
 
-unsigned int Cart::total() {
+unsigned int Cart::total() const {
     unsigned int total = 0;
     for (auto &&item : m_items) {
         total += item.getPrice();
@@ -31,8 +31,19 @@ unsigned int Cart::total() {
     for (auto &&pair : m_promoDB) {
         Promotion promo = pair.second;
 
+        bool promoApplies = true;
         for (auto &&rule : promo.getRules()) {
-
+            auto it = m_quantities.find(rule.first);
+            if (it != m_quantities.end()) {
+                if (it->second != rule.second) {
+                    promoApplies = false;
+                }
+            } else {
+                promoApplies = false;
+            }
+        }
+        if (promoApplies) {
+            total -= promo.getDiscountValue();
         }
     }
 

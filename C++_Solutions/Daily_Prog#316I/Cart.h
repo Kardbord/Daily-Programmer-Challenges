@@ -21,7 +21,7 @@ public:
      */
     bool addTour(Tour const &tour);
 
-    unsigned int total();
+    unsigned int total() const;
 
 private:
     std::vector<Tour> m_items;
