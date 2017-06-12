@@ -8,7 +8,6 @@
 #include "PromoDB.h"
 #include "ToursDB.h"
 
-// TODO: start here next time. Begin implementing Cart. Update the Tour and ToursDB classes as needed, then work on main
 class Cart {
 public:
 
