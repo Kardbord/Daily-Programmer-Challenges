@@ -19,3 +19,14 @@ std::vector<std::string> Utils::parseString(std::string s, std::string const &de
 
     return tokens;
 }
+
+std::vector<std::string> Utils::parseString(std::string s, std::string const &delim) {
+    std::vector<std::string> tokens;
+    size_t pos = 0;
+    while ((pos = s.find(delim)) != std::string::npos) {
+        tokens.push_back(s.substr(0, pos));
+        s.erase(0, pos + delim.length());
+    }
+
+    return tokens;
+}

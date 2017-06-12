@@ -22,6 +22,15 @@ public:
      */
     static std::vector<std::string> parseString(std::string s, std::string const &delim, int const expected_tokens);
 
+    /**
+     * A less secure overload of the parseString method that does not require expected tokens
+     *
+     * @param s is the string to be parsed
+     * @param delim is the delimiter by which %s will be parsed
+     * @return
+     */
+    static std::vector<std::string> parseString(std::string s, std::string const &delim);
+
 };
 
 
