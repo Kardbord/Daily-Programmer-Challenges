@@ -28,21 +28,36 @@ unsigned int Cart::total() const {
         total += item.getPrice();
     }
 
-    for (auto &&pair : m_promoDB) {
-        if (promoApplies(pair.second)) {
-            total -= pair.second.getDiscount();
+    for (auto &&id_promo_pair : m_promoDB) {
+        if (promoApplies(id_promo_pair.second)) {
+            total -= id_promo_pair.second.getDiscount();
+
+            for (auto && freebie : id_promo_pair.second.getFreebies()) {
+
+                int itemCount = 0;
+
+                for (auto &&item : m_items) {
+                    if (item.getID() == freebie.first) {
+                        ++itemCount;
+                    }
+                }
+
+                total -= itemCount * m_tourDB.at(freebie.first).getPrice();
+
+            }
+
 
             // req_ids are the ids of tours that must be present. For every one of the tours present in the cart with
             // the proper id, the discountPerItem must be applied.
             std::vector<std::string> req_ids;
-            for (auto &&rule : pair.second.getRules()) {
+            for (auto &&rule : id_promo_pair.second.getRules()) {
                 req_ids.push_back(rule.first);
             }
 
             for (auto &&tour : m_items) {
                 for (auto &&id : req_ids) {
                     if (tour.getID() == id) {
-                        total -= pair.second.getDiscountPerItem();
+                        total -= id_promo_pair.second.getDiscountPerItem();
                         break;
                     }
                 }
