@@ -13,6 +13,10 @@ std::vector<std::string> Utils::parseString(std::string s, std::string const &de
         s.erase(0, pos + delim.length());
     }
 
+    // Place the last token into the vector.
+    // This is not done in the while loop because the delim will not be found the last time through.
+    tokens.push_back(s);
+
     if (tokens.size() != expected_tokens) {
         throw std::invalid_argument("expected_tokens did not match the number of tokens parsed");
     }
@@ -27,6 +31,10 @@ std::vector<std::string> Utils::parseString(std::string s, std::string const &de
         tokens.push_back(s.substr(0, pos));
         s.erase(0, pos + delim.length());
     }
+
+    // Place the last token into the vector.
+    // This is not done in the while loop because the delim will not be found the last time through.
+    tokens.push_back(s);
 
     return tokens;
 }
