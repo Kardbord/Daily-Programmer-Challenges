@@ -8,8 +8,6 @@
  * Created by Tanner
  */
 
-// TODO: Debug this mofo. Output in receipt.txt does not match expected output from README.md
-
 ToursDB initTourDatabase();
 PromoDB initPromotionDatabase(ToursDB const &toursDB);
 
