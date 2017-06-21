@@ -31,6 +31,8 @@ private:
 
     ToursDB m_tourDB;
 
+    bool promoApplies(Promotion const &promo, int & numFreebies) const;
+
     bool promoApplies(Promotion const &promo) const;
 };
 

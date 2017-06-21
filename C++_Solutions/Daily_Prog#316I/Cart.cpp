@@ -2,6 +2,7 @@
 // Created by Tanner on 5/24/2017.
 //
 
+#include <cmath>
 #include "Cart.h"
 
 Cart::Cart(PromoDB const &promoDB, ToursDB const &toursDB) : m_promoDB(promoDB), m_tourDB(toursDB), m_items(),
@@ -15,7 +16,7 @@ bool Cart::addTour(std::string const &tour_id) {
         if (it != m_quantities.end()) {
             it->second += 1;
         } else {
-            m_quantities[tour_id] = 0;
+            m_quantities[tour_id] = 1;
         }
 
         return true;
@@ -79,11 +80,13 @@ void Cart::printOrder(std::ostream &out) const {
 
     out << std::endl << std::endl << "Free Items:" << std::endl;
 
+    int numFreebies = 1;
+
     for (auto &&pair : m_promoDB) {
-        if (promoApplies(pair.second)) {
+        if (promoApplies(pair.second, numFreebies)) {
 
             for (auto &&freebie : pair.second.getFreebies()) {
-                out << freebie.first << "x" << freebie.second << " ";
+                out << freebie.first << "x" << freebie.second * numFreebies << " ";
             }
 
         }
@@ -92,6 +95,23 @@ void Cart::printOrder(std::ostream &out) const {
     out << std::endl << std::endl << "Total: " << total() << std::endl << std::endl;
     out << "****************************************" << std::endl << std::endl;
 
+}
+
+bool Cart::promoApplies(Promotion const &promo, int & numFreebies) const {
+
+    for (auto &&rule : promo.getRules()) {
+        auto it = m_quantities.find(rule.first);
+        if (it != m_quantities.end()) {
+            if (it->second < rule.second) {
+                return false;
+            } else if (it->second != 0 && rule.second != 0) numFreebies = it->second / rule.second;
+        } else {
+            return false;
+        }
+    }
+
+
+    return true;
 }
 
 bool Cart::promoApplies(Promotion const &promo) const {
@@ -106,6 +126,8 @@ bool Cart::promoApplies(Promotion const &promo) const {
             return false;
         }
     }
+
+
     return true;
 }
 

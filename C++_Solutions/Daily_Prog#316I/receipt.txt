@@ -5,9 +5,9 @@ Items:
 OH OH OH BC 
 
 Free Items:
+SKx3 
 
-
-Total: 1010
+Total: 710
 
 ****************************************
 
@@ -18,9 +18,9 @@ Items:
 OH SK 
 
 Free Items:
+SKx1 
 
-
-Total: 330
+Total: 300
 
 ****************************************
 
@@ -31,7 +31,7 @@ Items:
 BC BC BC BC BC OH 
 
 Free Items:
-
+SKx1 
 
 Total: 750
 
