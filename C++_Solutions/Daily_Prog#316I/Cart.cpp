@@ -54,7 +54,8 @@ unsigned int Cart::total() const {
 }
 
 void Cart::printOrder(std::ostream &out) const {
-    out << "***Receipt***" << std::endl << std::endl;
+    out << "****************************************" << std::endl;
+    out << "\t\t\t\tReceipt" << std::endl << std::endl;
     out << "Items:" << std::endl;
 
     for (auto &&item : m_items) {
@@ -74,6 +75,7 @@ void Cart::printOrder(std::ostream &out) const {
     }
 
     out << std::endl << std::endl << "Total: " << total() << std::endl << std::endl;
+    out << "****************************************" << std::endl << std::endl;
 
 }
 
