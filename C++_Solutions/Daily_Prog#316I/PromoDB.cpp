@@ -44,13 +44,14 @@ PromoDB::PromoDB(ToursDB const &toursDB, std::vector<std::pair<std::string, unsi
  * @return true if the Promotion was successfully added to the database, false otherwise
  */
 bool PromoDB::addPromotion(std::string const &promo_id, std::vector<std::pair<std::string, unsigned int>> const &rules,
-                           unsigned int discount, std::vector<std::pair<std::string, unsigned int>> const &freebies) {
+                           unsigned int discount, std::vector<std::pair<std::string, unsigned int>> const &freebies,
+                           bool const discountIsPerItem) {
 
     Promotion newPromo(promo_id);
 
     for (auto &&tour_qty_pair : rules) {
         if (freebies.empty()) {
-            newPromo.addRule(tour_qty_pair.first, tour_qty_pair.second, discount);
+            newPromo.addRule(tour_qty_pair.first, tour_qty_pair.second, discount, discountIsPerItem);
         } else {
             newPromo.addRule(tour_qty_pair.first, tour_qty_pair.second, freebies);
         }

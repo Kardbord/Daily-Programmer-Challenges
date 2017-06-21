@@ -31,7 +31,8 @@ public:
      * @return true if the Promotion was successfully added to the database, false otherwise
      */
     bool addPromotion(std::string const &promo_id, std::vector<std::pair<std::string, unsigned int>> const &rules,
-                      unsigned int discount, std::vector<std::pair<std::string, unsigned int>> const &freebies);
+                      unsigned int discount, std::vector<std::pair<std::string, unsigned int>> const &freebies,
+                      bool const discountIsPerItem = false);
 
     // Allow access to some, but not all superclass functions
 

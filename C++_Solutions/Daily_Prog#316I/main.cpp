@@ -94,7 +94,7 @@ PromoDB initPromotionDatabase(ToursDB const &toursDB) {
     // Bulk discount on Sydney Bridge Climb
     {
         rules.push_back(std::make_pair("BC", 4));
-        promoDB.addPromotion("BULK", rules, 20, emptyVec);
+        promoDB.addPromotion("BULK", rules, 20, emptyVec, true);
     }
 
     return promoDB;
