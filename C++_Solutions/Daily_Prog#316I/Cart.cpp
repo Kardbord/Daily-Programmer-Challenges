@@ -99,7 +99,7 @@ bool Cart::promoApplies(Promotion const &promo) const {
     for (auto &&rule : promo.getRules()) {
         auto it = m_quantities.find(rule.first);
         if (it != m_quantities.end()) {
-            if (it->second != rule.second) {
+            if (it->second < rule.second) {
                 return false;
             }
         } else {
