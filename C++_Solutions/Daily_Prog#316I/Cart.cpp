@@ -30,7 +30,7 @@ unsigned int Cart::total() const {
 
     for (auto &&pair : m_promoDB) {
         if (promoApplies(pair.second)) {
-            total -= pair.second.getDiscountValue();
+            total -= pair.second.getDiscount();
         }
     }
 

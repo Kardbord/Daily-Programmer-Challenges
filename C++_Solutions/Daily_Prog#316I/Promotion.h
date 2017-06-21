@@ -30,9 +30,11 @@ public:
      * @param tour_id corresponds to the ID of a Tour for which the Promotion applies to
      * @param amt_req is the amount of tours of the given tour_id that must be present for the promo to apply
      * @param discount is the discount to be applied
+     * @param discountIsPerItem should be sent as true if the discount is to be multiplied by the number of tours with the proper id that are present
      * @return true if the rule was successfully added, false otherwise
      */
-    bool addRule(std::string const &tour_id, unsigned int const &amt_req, unsigned int const &discount);
+    bool addRule(std::string const &tour_id, unsigned int const &amt_req, unsigned int const &discount,
+                 bool const discountIsPerItem = false);
 
     /**
      *
@@ -48,7 +50,9 @@ public:
 
     std::string getID() const { return m_promo_id; }
 
-    unsigned int getDiscountValue() const { return m_discount; }
+    unsigned int getDiscount() const { return m_discount; }
+
+    unsigned int getDiscountPerItem() const { return m_discount_per_item; }
 
     std::vector<std::pair<std::string, unsigned int>> getFreebies() const { return m_freebies; };
 
@@ -65,6 +69,20 @@ public:
      * @param modAmt is the number to be added to the current discount value
      */
     void modifyDiscount(int const &modAmt);
+
+    /**
+     * Completely overwrites the current discount and makes it the value provided instead
+     *
+     * @param newDiscount the new discount value for the Promotion
+     */
+    void updateDiscountPerItem(unsigned int const &newDiscount);
+
+    /**
+     * Takes the current discount value, and adds modAmt to it
+     *
+     * @param modAmt is the number to be added to the current discount value
+     */
+    void modifyDiscountPerItem(int const &modAmt);
 
 private:
 
@@ -86,10 +104,16 @@ private:
     std::vector<std::pair<std::string, unsigned int>> m_freebies;
 
     /**
-     * An unsigned int containing the value of the discount to be applied.
+     * An unsigned int containing the value of the total discount to be applied.
      * m_discount is initialized to 0 if not applicable.
      */
     unsigned int m_discount;
+
+    /**
+     * An unsigned int containing the value of the total discount to be applied.
+     * m_discount_per_item is initialized to 0 if not applicable.
+     */
+    unsigned int m_discount_per_item;
 
 };
 
