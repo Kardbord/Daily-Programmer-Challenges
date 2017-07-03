@@ -32,7 +32,7 @@ class Playlist(object):
     def shuffle(self):
         new_list = sample(self.tracks, len(self.tracks))
         for track in new_list:
-            print track.name + "    " + track.artist
+            print track.name
 
 # Main program
 
