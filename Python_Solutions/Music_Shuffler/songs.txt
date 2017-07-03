@@ -7,4 +7,4 @@ Fat Lip,Sum-41,All Killer No Filler,5
 Fire,PVRIS,White Noise,6
 The Art of Losing,American-HiFi,The Art of Losing,7
 Whatsername,Green Day,American Idiot,8
-Featherweight,WSTR,Red Green or Inbetween
+Featherweight,WSTR,Red Green or Inbetween,9
