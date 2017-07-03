@@ -32,3 +32,5 @@ class Playlist(object):
         new_list = sample(self.tracks, len(self.tracks))
         for track in new_list:
             print track.name + "    " + track.artist
+
+# TODO: take inputs from a file to build Tracks, and from there a playlist. Then test the Playlist.shuffle function
