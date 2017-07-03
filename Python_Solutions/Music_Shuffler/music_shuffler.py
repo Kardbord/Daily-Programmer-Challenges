@@ -6,6 +6,7 @@
 # Take inputs from a file if possible to build a Track library/Playlist
 
 from random import sample
+import sys
 
 
 class Track(object):
@@ -33,4 +34,22 @@ class Playlist(object):
         for track in new_list:
             print track.name + "    " + track.artist
 
-# TODO: take inputs from a file to build Tracks, and from there a playlist. Then test the Playlist.shuffle function
+# Main program
+
+if len(sys.argv) < 2 or len(sys.argv) > 2:
+    print "\aUnexpected number of cmd line args. Expected 1."
+    exit(1)
+
+playlist = Playlist()
+fin = open(sys.argv[1])
+for line in fin:
+    track_info = line.split(" ")
+
+    # skip any lines with the wrong number of args
+    if not len(track_info) < 4 or len(track_info) > 4:
+        playlist.add_track(Track(track_info[0], track_info[1], track_info[2], track_info[3]))
+
+playlist.list()
+print "\n"
+playlist.shuffle()
+fin.close()
