@@ -23,13 +23,12 @@ class Playlist(object):
             print track.name
 
     def shuffle(self):
-        new_list = sample(self.tracks, len(self.tracks))
-        for track in new_list:
+        for track in sample(self.tracks, len(self.tracks)):
             print track.name
 
 # Main program
 
-if len(sys.argv) < 2 or len(sys.argv) > 2:
+if len(sys.argv) != 2:
     print "\aUnexpected number of cmd line args. Expected 1."
     exit(1)
 
@@ -39,7 +38,7 @@ for line in fin:
     track_info = line.split(",")
 
     # skip any lines with the wrong number of args
-    if not len(track_info) < 4 or len(track_info) > 4:
+    if len(track_info) == 4:
         playlist.add_track(Track(track_info[0], track_info[1], track_info[2], track_info[3]))
 
 playlist.list()
