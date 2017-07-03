@@ -5,6 +5,8 @@
 # Other Stuff:
 # Take inputs from a file if possible to build a Track library/Playlist
 
+from random import sample
+
 
 class Track(object):
     def __init__(self, name, artist, album, pk):
@@ -26,5 +28,7 @@ class Playlist(object):
         for track in self.tracks:
             print track.name
 
-    # def shuffle(self):
-            # TODO: implement this
+    def shuffle(self):
+        new_list = sample(self.tracks, len(self.tracks))
+        for track in new_list:
+            print track.name + "    " + track.artist
