@@ -36,7 +36,7 @@ if len(sys.argv) < 2 or len(sys.argv) > 2:
 playlist = Playlist()
 fin = open(sys.argv[1])
 for line in fin:
-    track_info = line.split(" ")
+    track_info = line.split(",")
 
     # skip any lines with the wrong number of args
     if not len(track_info) < 4 or len(track_info) > 4:
