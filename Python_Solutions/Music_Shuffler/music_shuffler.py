@@ -1,10 +1,3 @@
-# think about how to design this system:
-# possible design:
-# A Track class with Artist and Album members
-# A Playlist class with an array of Tracks, and a shuffle function
-# Other Stuff:
-# Take inputs from a file if possible to build a Track library/Playlist
-
 from random import sample
 import sys
 
