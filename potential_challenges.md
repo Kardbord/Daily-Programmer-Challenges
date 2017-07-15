@@ -15,4 +15,12 @@
 * Google Challenges:
     * Check out https://code.google.com/codejam/past-contests#kickstart
 
+* Personal Challenges:
 
+    * Write a program that efficiently guesses the number you're thinking of.
+        * You must provide initial boundaries, and then provide whether the guess is too high or too low
+	* Should be fairly simple
+
+* Simple Programming Problems:
+
+    * Check out https://adriann.github.io/programming_problems.html
