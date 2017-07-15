@@ -12,3 +12,5 @@ Potential/Interesting Challenges:
 
 Google Challenges:
     - Check out https://code.google.com/codejam/past-contests#kickstart
+
+
