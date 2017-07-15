@@ -1,0 +1,16 @@
+Daily Programmer Challenges:
+
+* 315 Intermediate: Conway's Game of Life
+    * EDIT: began this project, and abandoned it. It can be found in the unfinished projects directory
+    * good opportunity to use some JavaScript and HTML to make it look good
+	* https://www.reddit.com/r/dailyprogrammer/comments/6bumxo/20170518_challenge_315_intermediate_game_of_life/
+
+* 277 Intermediate: Fake Coins
+    * https://www.reddit.com/r/dailyprogrammer/comments/4utlaz/20160727_challenge_277_intermediate_fake_coins/
+
+* 316 Intermediate: Did this one already in C++. Would work well with the Django framework, but would be time consuming.
+
+Google Challenges:
+* Check out https://code.google.com/codejam/past-contests#kickstart
+
+
