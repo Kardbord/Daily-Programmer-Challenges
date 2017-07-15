@@ -8,7 +8,9 @@
     * 277 Intermediate: Fake Coins
         * https://www.reddit.com/r/dailyprogrammer/comments/4utlaz/20160727_challenge_277_intermediate_fake_coins/
     
-    * 316 Intermediate: Did this one already in C++. Would work well with the Django framework, but would be time consuming.
+    * 316 Intermediate:
+        * https://www.reddit.com/r/dailyprogrammer/comments/6d29om/20170524_challenge_316_intermediate_sydney/
+        * Did this one already in C++. Would work well with the Django framework, but would be time consuming.
 
 * Google Challenges:
     * Check out https://code.google.com/codejam/past-contests#kickstart
